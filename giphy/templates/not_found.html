@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Nothing Found</title>
+{% endblock %}
+
+{% block custom_css %}
+    <link href="{% static 'css/search_results.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <div class="container text-center">
+        <img src="{% static 'img/not_found.gif' %}">
+        <p>No images were returned by your search.</p>
+        <a href="{% url 'search' %}">Try Again?</a>
+    </div>
+{% endblock %}

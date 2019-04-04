@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Registration || Gif Search</title>
+{% endblock %}
+
+{% block custom_css %}
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+<div class="container">
+    <form class="form-signin" method="post">
+        {% csrf_token %}
+        <h1>Sign up</h1>
+        <img class="mb-4" src="{% static 'img/new_here.gif' %}" alt="" width="500" height="208">
+        {% for field in form %}
+            {% if field.errors %}
+                <p class="danger">
+                {{ field.errors }}
+                </p>
+            {% endif %}
+        {% endfor %}
+        <label for="id_username" class="sr-only">Username</label>
+        <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+        <label for="id_password1" class="sr-only">Password</label>
+        <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Password" required>
+        <label for="id_password2">Password confirmation</label>
+        <input type="password" name="password2" required id="id_password2" class="form-control" placeholder="Password Confirmation">
+        <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+  </form>
+</div>
+{% endblock %}

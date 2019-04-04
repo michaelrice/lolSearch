@@ -1,0 +1,17 @@
+body {
+    background-color: #9099a2;
+}
+
+.btn-link {
+    color: white;
+}
+
+.btn-link:hover {
+    font-weight: bolder;
+    color: white;
+}
+
+.modal-dialog {
+    width: auto !important;
+    max-width: 960px;
+}

@@ -1,0 +1,34 @@
+# API Key from  https://developers.giphy.com/
+# do not include quotes
+api_key:
+  YOUR_GIPHY_API_KEY
+
+# The MPAA-style rating for this content.
+# Examples include Y, G, PG, PG-13 and R
+gif_rating:
+  G
+
+# Response format for API calls.
+api_response_fmt:
+  json
+
+# Specify default language for regional content;
+# use a 2-letter ISO 639-1 language code.
+api_lang:
+  en
+
+# This shouldnt be raised above 100.
+# Higher values will result in the giphy-client
+# Raising a ValueError. On the other end values
+# below 0 will do the same.
+api_limit:
+  25
+
+# required because 100 is the max offset
+# limit in the public beta API. Remove this
+# for production API use.
+# Currently in the gclient
+# if offset > img_offset_limit: then offset = img_offset_limit
+# https://github.com/Giphy/GiphyAPI/issues/88
+img_offset_limit:
+  100

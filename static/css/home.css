@@ -1,0 +1,20 @@
+body {
+    background-image: url("../img/lol-home-page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h1 {
+    color: black;
+}
+
+#home-content {
+    text-align: center;
+    padding-top: 25%;
+}
+
+hr {
+    clear: both;
+    visibility: hidden;
+}

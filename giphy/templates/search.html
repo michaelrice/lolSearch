@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link href="{% static 'css/search.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    {% include 'includes/navbar.html' %}
+
+    <div class="container text-center">
+        <h1>Search For A Gif</h1>
+        <img src="{% static 'img/search.gif' %}">
+        <form method="post" class="form-search">
+            {% csrf_token %}
+            <label for="search_term" class="sr-only">Search Term</label>
+            <input type="text" id="id_search_term" name="search_term" class="form-control" placeholder="Search Term" required autofocus>
+            <hr>
+            <button class="btn btn-lg btn-primary" type="submit">Search</button>
+        </form>
+    </div>
+{% endblock %}

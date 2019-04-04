@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Search Results</title>
+{% endblock %}
+
+{% block custom_css %}
+    <link href="{% static 'css/search_results.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <div class="container">
+
+        {% for result in results.data %}
+                <input type="image"
+                       src="{{ result.images.fixed_width.url }}"
+                       data-toggle="modal"
+                       data-target="#gifModal"
+                       data-origurl="{{ result.images.original.url }}"
+                       data-imgid="{{ result.id }}"
+                >
+        {% endfor %}
+        <form method="post" class="form-search">
+            {% csrf_token %}
+            <input type="hidden" id="search_term" name="search_term" value="{{ search_term }}">
+            <input type="hidden" id="offset" name="offset" value="{{ results.pagination.offset |add:results.pagination.count }}">
+            <button class="btn btn-link">More</button>
+        </form>
+    </div>
+    {% include 'save_modal.html' %}
+{% endblock %}
+
+{% block custom_js %}
+    <script src="{% static 'js/save-modal.js' %}"></script>
+{% endblock %}

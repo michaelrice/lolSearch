@@ -1,0 +1,4 @@
+giphy_client==1.0.0
+Django==2.1.7
+django-taggit==1.1.0
+PyYaml==5.1

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ user.username }}'s Profile</title>
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% include 'includes/navbar.html' %}
+    <div class="container text-center>">
+    <p>Welcome to your profile {{ user.username }}!!</p>
+    {% for img in images %}
+        <img src="{{ img.image_200_url }}">
+    {% endfor %}
+    </div>
+{% endblock %}
